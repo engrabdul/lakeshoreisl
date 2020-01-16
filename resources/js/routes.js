@@ -1,4 +1,14 @@
+import AdminHome from './components/admin/AdminHome.vue'
+import Ca from './components/admin/category/List.vue'
+
+
 export const routes = [
-    { path: '/foo', component: Foo },
-    { path: '/bar', component: Bar }
-  ]
+    {
+        path:'/home',
+        component:AdminHome
+    },
+    {
+        path:'/category-list',
+        component:Ca
+    }
+];
