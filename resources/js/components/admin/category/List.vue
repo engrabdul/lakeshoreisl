@@ -1,14 +1,18 @@
 <template>
+<div>
 <!-- Main content -->
     <section class="content">
-    <div class="row">
-        <div class="col-12">
+    <div class="row justify-content-around">
+        <div class="col-8">
             <div class="card">
                 <div class="card-header">
                 <h3 class="card-title">Category List</h3>
 
                 <div class="card-tools">
-                    <button class="btn btn-primary">Add Category</button>
+                    <router-link to="/add-category" style="color: #FFF;">
+                        <button class="btn btn-primary"> Add Category</button>
+                    </router-link>
+
                 </div>
                 </div>
 
@@ -25,7 +29,7 @@
                     <tbody>
                     <tr>
                     <td>1</td>
-                    <td>Category Name</td>
+                    <td>{{getallCategory}}</td>
                     <td>
                         <a href="#">Edit</a>
                         <a href="#">Delete</a>
@@ -43,11 +47,23 @@
       <!-- /.row -->
     </section>
 <!-- End Main content -->
+</div>
 </template>
 
 <script>
 export default {
-    name: 'List'
+    name: 'List',
+    mounted(){
+        return this.$store.dispatch("allCategory")
+    },
+    computed:{
+        getallCategory(){
+            return this.$store.getters.getCategory
+        }
+    },
+    methods:{
+
+    }
 }
 </script>
 
